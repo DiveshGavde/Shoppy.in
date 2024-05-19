@@ -1,0 +1,39 @@
+.cart_icon {
+  font-size: 22px;
+}
+
+.cart_button {
+  display: flex;
+  align-items: center;
+  background: none;
+  color: inherit;
+  border: none;
+}
+
+.cart_button i {
+  padding: 10px;
+}
+
+.cart_icon :hover {
+  border: 1px solid #fff;
+}
+
+.cart_button :hover {
+  border: none;
+}
+
+@media screen and (max-width: 875px) {
+  .cart_icon {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .cart_icon {
+    font-size: 12px;
+  }
+
+  .cart_button i {
+    padding: 0;
+  }
+}

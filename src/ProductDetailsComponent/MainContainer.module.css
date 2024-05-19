@@ -1,0 +1,13 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  width: 95vw;
+  margin: 1vw auto;
+}
+
+@media screen and (max-width: 1120px) {
+  .container {
+    gap: 20px;
+  }
+}

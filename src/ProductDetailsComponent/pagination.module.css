@@ -1,0 +1,65 @@
+.pagination_button_left {
+  padding: 40px 30px 40px 0;
+  border: none;
+}
+
+.pagination_button_left span {
+  position: relative;
+  left: 16px;
+  font-size: 26px;
+  color: #000000c9;
+  transition: none;
+}
+
+.pagination_button_left :hover {
+  transform: none;
+}
+
+.button_left {
+  position: absolute;
+  top: 120px;
+  transition: 0.3s ease;
+}
+
+.button_left :hover {
+  transform: scale(0.9);
+  border: 1px solid #00eefff5;
+}
+
+.pagination_button_left :hover {
+  border: none;
+}
+
+.button_right {
+  position: absolute;
+  right: 0px;
+  top: 120px;
+}
+
+.pagination_button_right {
+  padding: 40px 30px 40px 0;
+
+  border: none;
+}
+
+.pagination_button_right span {
+  position: relative;
+  left: 15px;
+  font-size: 26px;
+}
+
+.button_right :hover {
+  transform: scale(0.9);
+  border: 1px solid #00eefff5;
+}
+
+.pagination_button_right :hover {
+  border: none;
+}
+
+@media screen and (max-width: 450px) {
+  .pagination_button_left,
+  .pagination_button_right {
+    display: none;
+  }
+}

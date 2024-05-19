@@ -1,24 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import Header from "./Routes/Header";
+import HomePage from "./Routes/HomePage";
+import ProductDetails from "./Routes/ProductDetails";
+import CartContextProvider from "./Store/ContexrStore";
+import Error from "./Routes/Error";
+import ProductSummary from "./Routes/AllProductSummary";
+import SearchResults, {
+  action as searchAction,
+} from "./Routes/SearcedhResults";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 
 function App() {
+  const queryClient = new QueryClient();
+  const route = createBrowserRouter([
+    {
+      path: "/",
+      element: <Header />,
+      errorElement: <Error />,
+
+      children: [
+        {
+          index: true,
+          element: <HomePage />,
+        },
+        {
+          path: ":productList",
+          element: <ProductDetails />,
+        },
+        {
+          path: "searchresults",
+          element: <SearchResults />,
+          action: searchAction,
+        },
+        {
+          path: "productDetails/:productid",
+          element: <ProductSummary />,
+        },
+      ],
+    },
+  ]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <QueryClientProvider client={queryClient}>
+        <CartContextProvider>
+          <RouterProvider router={route} />
+        </CartContextProvider>
+      </QueryClientProvider>
+    </>
   );
 }
 
